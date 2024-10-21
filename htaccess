@@ -1,0 +1,12 @@
+# Asegura que los archivos PHP se procesen correctamente
+AddHandler application/x-httpd-php .php
+
+# Redirige HTTP a HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Establece el archivo predeterminado (puedes cambiar esto si necesitas otro archivo por defecto)
+DirectoryIndex login_register.html
+
+
